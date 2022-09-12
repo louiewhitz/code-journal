@@ -10,8 +10,11 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "thebearingedge.lfz-code"
-      ]
+		"thebearingedge.lfz-code",
+		"TabNine.tabnine-vscode",
+		"ChakrounAnas.turbo-console-log",
+		"kamikillerto.vscode-colorize"
+	]
     }
   },
   "postCreateCommand": "[ ! -f package-lock.json ] || npm ci; sudo chown -R dev:dev ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/* && chmod 644 ~/.ssh/*.pub",
