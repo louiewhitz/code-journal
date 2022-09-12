@@ -44,6 +44,7 @@ textarea {
   width: 100%;
   border: 1px solid #b6b6b6;
   border-radius: 2px;
+  font-family: "Open Sans", sans-serif;
 }
 
 .align-right {
