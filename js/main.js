@@ -27,7 +27,7 @@ function handleSubmit(event) {
     notes,
     entryId: data.nextEntryId
   };
-  data.entries.push(entry);
+  data.entries.unshift(entry);
   data.nextEntryId++;
   form.reset();
   placeholder.setAttribute('src', '/images/placeholder-image-square.jpg');
