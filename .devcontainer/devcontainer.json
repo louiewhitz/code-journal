@@ -13,7 +13,9 @@
 		"thebearingedge.lfz-code",
 		"TabNine.tabnine-vscode",
 		"ChakrounAnas.turbo-console-log",
-		"kamikillerto.vscode-colorize"
+		"kamikillerto.vscode-colorize",
+		"letrieu.turbo-console-log",
+		"Zignd.html-css-class-completion"
 	]
     }
   },
