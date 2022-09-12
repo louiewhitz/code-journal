@@ -17,9 +17,9 @@ function changeSrc(event) {
 
 function handleSubmit(event) {
   event.preventDefault();
-  var title = document.querySelector('#title').value;
-  var photoUrl = document.querySelector('#photo').value;
-  var notes = document.querySelector('#notes').value;
+  var title = form.elements.title.value;
+  var photoUrl = form.elements.photo.value;
+  var notes = form.elements.notes.value;
 
   var entry = {
     title,
