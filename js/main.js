@@ -54,7 +54,6 @@ function handleSubmit(event) {
 
 function loadEntry(entry) {
   viewSwap('entries');
-
   var newEntry = renderDomEntry(entry);
   ulList.prepend(newEntry);
 }
