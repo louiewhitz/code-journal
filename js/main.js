@@ -2,21 +2,34 @@ var form = document.querySelector('#form');
 var imgSrc = document.querySelector('.photo-url');
 var placeholder = document.querySelector('#placeholder');
 var ulList = document.querySelector('#ul-list');
+var newButton = document.querySelector('#new-btn');
+var entriesBtn = document.querySelector('.nav-entries');
 
 var $entriesContainer = document.querySelector('[data-view=entries]');
 var $formContainer = document.querySelector('[data-view=entry-form]');
 
+entriesBtn.addEventListener('click', handleHeaderClick);
+
 imgSrc.addEventListener('input', changeSrc);
 form.addEventListener('submit', handleSubmit);
 window.addEventListener('DOMContentLoaded', handleDOMContentLoaded);
+newButton.addEventListener('click', handleNewButtonClick);
 
 // functions for listener events
+function handleHeaderClick(event) {
+  viewSwap('entries');
+}
+
 function changeSrc(event) {
   if (placeholder === '') {
     imgSrc.setAttribute('src', '/images/placeholder-image-square.jpg');
   } else {
-    placeholder.setAttribute('src', imgSrc.value);
+    placeholder.setAttribute('src', form.elements.photo.value);
   }
+}
+
+function handleNewButtonClick(event) {
+  viewSwap('entry-form');
 }
 
 function handleSubmit(event) {
@@ -33,30 +46,28 @@ function handleSubmit(event) {
   };
   data.entries.unshift(entry);
   data.nextEntryId++;
+  viewSwap('entry-form');
+  loadEntry(entry);
   form.reset();
   placeholder.setAttribute('src', '/images/placeholder-image-square.jpg');
-  loadEntry(entry);
-  viewSwap(data.view);
+}
+
+function loadEntry(entry) {
+  viewSwap('entries');
+
+  var newEntry = renderDomEntry(entry);
+  ulList.prepend(newEntry);
 }
 
 function handleDOMContentLoaded() {
   if (data.entries.length > 0) {
     for (var i = 0; i < data.entries.length; i++) {
-      ulList.append(renderDomEntry(data.entries[i]));
+      var previousEntry = renderDomEntry(data.entries[i]);
+      ulList.append(previousEntry);
     }
   }
+  viewSwap(data.view);
 }
-
-//   if (data.entries.length > 0) {
-//     for (var i = 0; i < data.entries.length; i++) {
-//       var ul = document.querySelector('#ul-list');
-//       var getEntry = renderDomEntry(data.entries[i]);
-//       ul.prepend(getEntry);
-//     }
-
-//   }
-
-// }
 
 // dummy entry for dom tree
 //  <li class="row">
@@ -96,24 +107,13 @@ function renderDomEntry(newEntry) {
   return li;
 }
 
-function loadEntry(entry) {
-  var newEntry = renderDomEntry(entry);
-  ulList.prepend(renderDomEntry(newEntry));
-}
-
 function viewSwap(view) {
   data.view = view;
   if (view === 'entry-form') {
     $formContainer.className = 'view';
-    $entriesContainer.className = 'hidden';
+    $entriesContainer.className = 'view hidden';
   } else if (view === 'entries') {
     $formContainer.className = 'view hidden';
-    $entriesContainer.className = 'view active';
+    $entriesContainer.className = 'view';
   }
 }
-
-// }
-
-// function updateDataView(view) {
-
-// }

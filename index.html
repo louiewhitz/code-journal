@@ -15,18 +15,18 @@
 </head>
 
 <body>
-  <header class="header-container" id="entry-form">
+  <header class="header-container active">
     <div class="container">
       <div class="row">
         <div class="column-full display-flex">
           <h3 id="head-h3">Code Journal</h3>
-          <div class="entry-container"><a href="#entries">Entries</a></div>
+          <a href="#nav-entry" class="nav-entries">Entries</a>
         </div>
       </div>
     </div>
   </header>
   <main>
-    <div class="view" data-view="entry-form">
+    <div class="view" data-view="entry-form" id="entry-form">
       <form class="container" id="form">
         <div class="row">
           <div class="column-full">
@@ -55,18 +55,20 @@
         </div>
       </form>
     </div>
-    <div class="view container" data-view="entries" id="entries">
-      <div class="row">
-        <div class="column-full space-between">
-          <h1>Entries</h1>
-          <div class="align-center-space-between">
-            <a href="#entry-form" class="button btn-new" id="new-btn">NEW</a>
+    <div class="view hidden" data-view="entries" id="entries">
+      <div class="container">
+        <div class="row">
+          <div class="column-full space-between">
+            <h1>Entries</h1>
+            <div class="align-center-space-between">
+              <a href="#entry-form" class="button btn-new" id="new-btn">NEW</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <ul id="ul-list">
-        </ul>
+        <div class="row">
+          <ul id="ul-list">
+          </ul>
+        </div>
       </div>
     </div>
   </main>
