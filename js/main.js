@@ -3,7 +3,9 @@ var imgSrc = document.querySelector('.photo-url');
 var placeholder = document.querySelector('#placeholder');
 var ulList = document.querySelector('#ul-list');
 
-// addEventListeners
+var $entriesContainer = document.querySelector('[data-view=entries]');
+var $formContainer = document.querySelector('[data-view=entry-form]');
+
 imgSrc.addEventListener('input', changeSrc);
 form.addEventListener('submit', handleSubmit);
 window.addEventListener('DOMContentLoaded', handleDOMContentLoaded);
@@ -34,6 +36,7 @@ function handleSubmit(event) {
   form.reset();
   placeholder.setAttribute('src', '/images/placeholder-image-square.jpg');
   loadEntry(entry);
+  viewSwap(data.view);
 }
 
 function handleDOMContentLoaded() {
@@ -94,12 +97,23 @@ function renderDomEntry(newEntry) {
 }
 
 function loadEntry(entry) {
-  for (var i = 0; i < data.entries.length; i++) {
-    ulList.appendChild(renderDomEntry(data.entries[i]));
+  var newEntry = renderDomEntry(entry);
+  ulList.prepend(renderDomEntry(newEntry));
+}
+
+function viewSwap(view) {
+  data.view = view;
+  if (view === 'entry-form') {
+    $formContainer.className = 'view';
+    $entriesContainer.className = 'hidden';
+  } else if (view === 'entries') {
+    $formContainer.className = 'view hidden';
+    $entriesContainer.className = 'view active';
   }
 }
-// function loadEntry(entry) {
-//   for (var i = 0; i < data.entries.length; i++) {
-//   ulList.appendChild(renderDomEntry(data.entries[i]));
+
 // }
+
+// function updateDataView(view) {
+
 // }

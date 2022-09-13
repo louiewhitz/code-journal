@@ -5,6 +5,10 @@ body {
   background-color: #f0f0f0;
 }
 
+.active {
+  display: block;
+}
+
 .header-container {
   width: 100vw;
   background-color: #562b81;
@@ -100,6 +104,8 @@ li h3 {
   margin-top: 0;
 }
 
+/* [data-view="entries"].active */
+
 /* reuseable styles */
 
 .display-flex {
@@ -116,4 +122,10 @@ li h3 {
 
 .align-right {
   text-align: right;
+}
+
+.align-center-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
