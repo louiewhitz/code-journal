@@ -1,10 +1,12 @@
 var form = document.querySelector('#form');
 var imgSrc = document.querySelector('.photo-url');
-var placeholder = document.querySelector('.placeholder');
+var placeholder = document.querySelector('#placeholder');
+var ulList = document.querySelector('#ul-list');
 
 // addEventListeners
 imgSrc.addEventListener('input', changeSrc);
 form.addEventListener('submit', handleSubmit);
+window.addEventListener('DOMContentLoaded', handleDOMContentLoaded);
 
 // functions for listener events
 function changeSrc(event) {
@@ -31,7 +33,27 @@ function handleSubmit(event) {
   data.nextEntryId++;
   form.reset();
   placeholder.setAttribute('src', '/images/placeholder-image-square.jpg');
+  loadEntry(entry);
 }
+
+function handleDOMContentLoaded() {
+  if (data.entries.length > 0) {
+    for (var i = 0; i < data.entries.length; i++) {
+      ulList.append(renderDomEntry(data.entries[i]));
+    }
+  }
+}
+
+//   if (data.entries.length > 0) {
+//     for (var i = 0; i < data.entries.length; i++) {
+//       var ul = document.querySelector('#ul-list');
+//       var getEntry = renderDomEntry(data.entries[i]);
+//       ul.prepend(getEntry);
+//     }
+
+//   }
+
+// }
 
 // dummy entry for dom tree
 //  <li class="row">
@@ -46,7 +68,38 @@ function handleSubmit(event) {
 
 // functions that make things happen when a listener fires
 
-// function renderDomEntry(entry) {
-//   var li = document.createE
+function renderDomEntry(newEntry) {
+  var li = document.createElement('li');
+  li.setAttribute('class', 'row');
+  var columnHalfOne = document.createElement('div');
+  columnHalfOne.setAttribute('class', 'column-half');
+  var newImg = document.createElement('img');
+  newImg.setAttribute('src', newEntry.photoUrl);
+  newImg.setAttribute('class', 'object-fit');
+  var columnHalfTwo = document.createElement('div');
+  columnHalfTwo.setAttribute('class', 'column-half');
+  var newTitle = document.createElement('h3');
+  newTitle.textContent = newEntry.title;
+  var newNote = document.createElement('p');
+  newNote.textContent = newEntry.notes;
 
+  // appending action of dummy entry to the page
+
+  li.appendChild(columnHalfOne);
+  columnHalfOne.appendChild(newImg);
+  li.appendChild(columnHalfTwo);
+  columnHalfTwo.appendChild(newTitle);
+  columnHalfTwo.appendChild(newNote);
+  return li;
+}
+
+function loadEntry(entry) {
+  for (var i = 0; i < data.entries.length; i++) {
+    ulList.appendChild(renderDomEntry(data.entries[i]));
+  }
+}
+// function loadEntry(entry) {
+//   for (var i = 0; i < data.entries.length; i++) {
+//   ulList.appendChild(renderDomEntry(data.entries[i]));
+// }
 // }

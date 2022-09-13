@@ -83,7 +83,7 @@ ul {
   padding: 0;
 }
 
-.column-half > p {
+li p {
   font-family: "Open Sans", sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -91,7 +91,7 @@ ul {
   line-height: 160%;
 }
 
-.column-half > h3 {
+li h3 {
   font-family: "Proza Libre", sans-serif;
   font-style: normal;
   font-weight: 600;
