@@ -85,6 +85,7 @@ function handleDOMContentLoaded() {
 function renderDomEntry(newEntry) {
   var li = document.createElement('li');
   li.setAttribute('class', 'row');
+  li.style.marginBottom = '30px';
   var columnHalfOne = document.createElement('div');
   columnHalfOne.setAttribute('class', 'column-half');
   var newImg = document.createElement('img');
