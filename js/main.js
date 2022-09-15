@@ -81,36 +81,7 @@ function handleSubmit(event) {
 
 }
 
-function handleEditIcon(event) {
-  if (event.target.tagName === 'I') {
-    var entryId = Number(event.target.closest('li').getAttribute('data-entry-id'));
-    for (var u = 0; u < data.entries.length; u++) {
-      if (data.entries[u].entryId === entryId) {
-        data.editing = data.entries[u];
-        loadEditEntryView(data.editing);
-      }
-    }
 
-  }
-}
-
-function loadEditEntryView(entry) {
-  var $notes = document.querySelector('#notes');
-  var $photo = document.querySelector('#photo');
-  var $title = document.querySelector('#title');
-  formh1.textContent = 'Edit Entry';
-  $photoUrl.value = entry.photoUrl;
-  $title.value = entry.title;
-  $notes.value = entry.notes;
-  formh1.textContent = 'Edit Entry';
-  viewSwap('entry-form');
-  $photo.value = entry.photoUrl;
-  $title.value = entry.title;
-  $notes.value = entry.notes;
-  placeholder.setAttribute('src', entry.photoUrl);
-}
-
-function loadEntry(entry) {
   var newEntry = renderDomEntry(entry);
   ulList.prepend(newEntry);
   viewSwap(data.view);
