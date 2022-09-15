@@ -76,7 +76,7 @@ a {
   font-weight: 500;
 }
 
-li {
+.single-entry li {
   list-style-type: none;
   width: 100%;
   padding: 0;
@@ -104,6 +104,19 @@ li h3 {
   margin-top: 0;
 }
 
+.column-half > a {
+  display: inline-block;
+  text-align: end;
+}
+
+.fa-pen,
+.fa-solid {
+  display: flex;
+  flex-direction: column;
+  align-self: baseline;
+  color: #562b81;
+}
+
 /* [data-view="entries"].active */
 
 /* reuseable styles */
@@ -128,4 +141,15 @@ li h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.text-align-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: flex-end;
+}
+
+cursor:focus {
+  cursor: pointer;
 }
