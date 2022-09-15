@@ -30,7 +30,7 @@
       <form class="container" id="form">
         <div class="row">
           <div class="column-full">
-            <h1>New Entry</h1>
+            <h1 class="form-header">New Entry</h1>
           </div>
         </div>
         <div class="row">
@@ -41,7 +41,7 @@
             <h3 class="midh3"><label for="title">Title</label></h3>
             <input type="text" required name="title" id="title" />
             <h3 class="midh3"><label for="photo-url">Photo URL</label></h3>
-            <input type="text" name="photo" class="photo-url" id="photo" required />
+            <input type="text" name="photoUrl" class="photo-url" id="photo" required />
           </div>
         </div>
         <div class="row">
@@ -49,7 +49,7 @@
             <h3><label for="notes">Notes</label></h3>
             <textarea name="notes" id="notes" cols="30" rows="10" required></textarea>
             <div class="align-right">
-              <button type="submit" value="SUBMIT" class="button">SAVE</button>
+              <button type="submit" value="SAVE" class="button">SAVE</button>
             </div>
           </div>
         </div>
@@ -67,6 +67,7 @@
         </div>
         <div class="row">
           <ul id="ul-list">
+
           </ul>
         </div>
       </div>
@@ -75,5 +76,4 @@
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
-
 </html>
