@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,49 +29,97 @@
         <div class="row">
           <div class="column-full">
             <h1 class="formh1">New Entry</h1>
-          </div>
-        </div>
-        <div class="row">
-          <div class="column-half">
-            <img src="/images/placeholder-image-square.jpg" alt="placeholder" class="object-fit" id="placeholder" />
-          </div>
-          <div class="column-half">
-            <h3 class="midh3"><label for="title">Title</label></h3>
-            <input type="text" required name="title" id="title" />
-            <h3 class="midh3"><label for="photo-url">Photo URL</label></h3>
-            <input type="text" name="photoUrl" class="photo-url" id="photo" required />
-          </div>
-        </div>
-        <div class="row">
-          <div class="column-full">
-            <h3><label for="notes">Notes</label></h3>
-            <textarea name="notes" id="notes" cols="30" rows="10" required></textarea>
-            <div class="align-right">
-              <button type="submit" value="SAVE" class="button">SAVE</button>
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
-    <div class="view hidden" data-view="entries" id="entries">
-      <div class="container">
-        <div class="row">
-          <div class="column-full space-between">
-            <h1>Entries</h1>
-            <div class="align-center-space-between">
-              <a href="#entry-form" class="button btn-new" id="new-btn">NEW</a>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <ul id="ul-list">
 
-          </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="view" data-view="entry-form" id="entry-form">
+        <form class="container" id="form">
+          <div class="row">
+            <div class="column-full">
+              <h1 class="formh1">New Entry</h1>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="column-half">
+              <img
+                src="/images/placeholder-image-square.jpg"
+                alt="placeholder"
+                class="object-fit"
+                id="placeholder"
+              />
+            </div>
+            <div class="column-half">
+              <h3 class="midh3"><label for="title">Title</label></h3>
+              <input type="text" required name="title" id="title" />
+              <h3 class="midh3"><label for="photo-url">Photo URL</label></h3>
+              <input
+                type="text"
+                name="photoUrl"
+                class="photo-url"
+                id="photo"
+                required
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-full">
+              <h3><label for="notes">Notes</label></h3>
+              <textarea
+                name="notes"
+                id="notes"
+                cols="30"
+                rows="10"
+                required
+              ></textarea>
+
+              <div class="row align-center-space-between">
+                <a href="#" class="delete-entry">Delete Entry</a>
+                <div class="align-right">
+                  <button type="submit" value="SUBMIT" class="button">
+                    SAVE
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="view hidden" data-view="entries" id="entries">
+        <div class="container">
+          <div class="row">
+            <div class="column-full space-between">
+              <h1>Entries</h1>
+              <div class="align-center-space-between">
+                <a href="#entry-form" class="button btn-new" id="new-btn"
+                  >NEW</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <ul id="ul-list"></ul>
+          </div>
+        </div>
+
+      </div>
+    </main>
+    <div class="modal-box hidden">
+      <div class="row modal">
+        <div class="column-full modal-text">
+          <p>Are you sure you want to delete this entry?</p>
+        </div>
+        <div class="column-full modal-btns">
+          <button class="cancel-modal">CANCEL</button>
+          <button class="confirm-modal">CONFIRM</button>
         </div>
       </div>
     </div>
-  </main>
-  <script src="js/data.js"></script>
-  <script src="js/main.js"></script>
-</body>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+
 </html>
