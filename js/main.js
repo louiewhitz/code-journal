@@ -4,11 +4,13 @@ var placeholder = document.querySelector('#placeholder');
 var ulList = document.querySelector('#ul-list');
 var newButton = document.querySelector('#new-btn');
 var headerContainer = document.querySelector('.header-container');
+
 var deleteButton = document.querySelector('.delete-entry');
 var modalContainer = document.querySelector('.modal-box');
 var formh1 = document.querySelector('.formh1');
 var confirmButton = document.querySelector('.confirm-modal');
 var cancelButton = document.querySelector('.cancel-modal');
+
 var $entriesContainer = document.querySelector('[data-view=entries]');
 var $formContainer = document.querySelector('[data-view=entry-form]');
 
@@ -23,7 +25,6 @@ ulList.addEventListener('click', handleEditIcon);
 deleteButton.addEventListener('click', handleDelete);
 cancelButton.addEventListener('click', handleCancel);
 confirmButton.addEventListener('click', handleConfirm);
-
 function handleHeaderClick(event) {
 
   viewSwap('entries');
@@ -42,7 +43,9 @@ function handleNewButtonClick(event) {
   formh1.textContent = 'New Entry';
   data.editing = null;
   form.reset();
+
   placeholder.setAttribute('src', 'images/placeholder-image-square.jpg');
+
   data.view = 'entry-form';
   viewSwap(data.view);
 }
@@ -117,6 +120,8 @@ function loadEditEntryView(entry) {
   placeholder.setAttribute('src', entry.photoUrl);
 }
 
+
+
 function loadEntry(entry) {
   var newEntry = renderDomEntry(entry);
   ulList.prepend(newEntry);
@@ -168,7 +173,9 @@ function renderDomEntry(entry) {
   anchorLi.style.textAlign = 'right';
   var editIcon = document.createElement('i');
   editIcon.className = 'fa-solid fa-pen';
+
   editIcon.style.color = '#562B81';
+
   anchorLi.appendChild(editIcon);
   var newNote = document.createElement('p');
   newNote.textContent = entry.notes;

@@ -15,7 +15,10 @@
 		"ChakrounAnas.turbo-console-log",
 		"kamikillerto.vscode-colorize",
 		"letrieu.turbo-console-log",
-		"Zignd.html-css-class-completion"
+		"Zignd.html-css-class-completion",
+		"WallabyJs.quokka-vscode",
+		"sketchbuch.vsc-quokka-statusbar",
+		"Centuplex.quokka"
 	]
     }
   },
