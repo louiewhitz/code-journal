@@ -4,8 +4,11 @@ var placeholder = document.querySelector('#placeholder');
 var ulList = document.querySelector('#ul-list');
 var newButton = document.querySelector('#new-btn');
 var headerContainer = document.querySelector('.header-container');
-
+var deleteButton = document.querySelector('.delete-entry');
+var modalContainer = document.querySelector('.modal-box');
 var formh1 = document.querySelector('.formh1');
+var confirmButton = document.querySelector('.confirm-modal');
+var cancelButton = document.querySelector('.cancel-modal');
 var $entriesContainer = document.querySelector('[data-view=entries]');
 var $formContainer = document.querySelector('[data-view=entry-form]');
 
@@ -17,8 +20,14 @@ newButton.addEventListener('click', handleNewButtonClick);
 ulList.addEventListener('click', handleEditIcon);
 // functions for listener events
 
+deleteButton.addEventListener('click', handleDelete);
+cancelButton.addEventListener('click', handleCancel);
+confirmButton.addEventListener('click', handleConfirm);
+
 function handleHeaderClick(event) {
+
   viewSwap('entries');
+
 }
 
 function changeSrc(event) {
@@ -33,7 +42,7 @@ function handleNewButtonClick(event) {
   formh1.textContent = 'New Entry';
   data.editing = null;
   form.reset();
-  $photoUrl.setAttribute('src', 'images/placeholder-image-square.jpg');
+  placeholder.setAttribute('src', 'images/placeholder-image-square.jpg');
   data.view = 'entry-form';
   viewSwap(data.view);
 }
@@ -183,5 +192,28 @@ function viewSwap(view) {
   } else if (view === 'entries') {
     $formContainer.className = 'view hidden';
     $entriesContainer.className = 'view';
+  }
+}
+
+function handleDelete(event) {
+  modalContainer.className = 'modal-box';
+}
+
+function handleCancel(event) {
+  modalContainer.className = 'modal-box hidden';
+}
+
+function handleConfirm(event) {
+  modalContainer.className = 'modal-box hidden';
+  var $currentLi = document.querySelectorAll('li');
+  for (var u = 0; u < data.entries.length; u++) {
+    for (var e = 0; e < $currentLi.length; e++) {
+      if (data.entries[u].entryId === data.editing.entryId && data.entries[u].entryId === +$currentLi[e].getAttribute('data-entry-id')) {
+        $currentLi[e].remove();
+        data.entries.splice(u, 1);
+        data.view = 'entries';
+        viewSwap(data.view);
+      }
+    }
   }
 }
